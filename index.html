@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Which AI Are You? | AI for Her Business</title>
-    <meta name="description" content="Take this 3-minute quiz to find out which AI matches your energy.">
+    <title>AI for Her Business | Nataliya Shalygina</title>
+    <meta name="description" content="Helping women business owners use AI with confidence. Great things coming soon.">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -15,37 +15,27 @@
             background: #0d0d0d;
             color: #f5f5f5;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
         }
 
         .container {
             max-width: 720px;
             margin: 0 auto;
             padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
 
-        /* Header */
-        .header {
+        /* Hero */
+        .hero {
             text-align: center;
-            padding: 50px 0 30px;
+            padding: 60px 0 40px;
         }
 
-        .header h1 {
-            font-size: 2.4rem;
-            font-weight: 800;
-            color: #FFD700;
-            line-height: 1.2;
-            margin-bottom: 12px;
-        }
-
-        .header p {
-            font-size: 1.05rem;
-            color: #999;
-            max-width: 500px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        .header .badge {
+        .brand-badge {
             display: inline-block;
             background: rgba(255, 215, 0, 0.12);
             color: #FFD700;
@@ -53,419 +43,262 @@
             font-weight: 600;
             padding: 6px 14px;
             border-radius: 20px;
-            margin-bottom: 16px;
+            margin-bottom: 24px;
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
 
-        /* Progress bar */
-        .progress-bar {
-            width: 100%;
-            height: 4px;
-            background: #222;
-            border-radius: 2px;
-            margin: 30px 0 10px;
-            overflow: hidden;
-        }
-
-        .progress-fill {
-            height: 100%;
-            background: #FFD700;
-            border-radius: 2px;
-            width: 0%;
-            transition: width 0.4s ease;
-        }
-
-        .progress-text {
-            text-align: center;
-            font-size: 0.8rem;
-            color: #666;
-            margin-bottom: 20px;
-        }
-
-        /* Questions */
-        .question-card {
-            background: #161616;
-            border: 1px solid #262626;
-            border-radius: 16px;
-            padding: 30px;
-            margin-bottom: 16px;
-            transition: border-color 0.3s ease, opacity 0.3s ease;
-        }
-
-        .question-card.answered {
-            border-color: #FFD700;
-        }
-
-        .question-number {
-            font-size: 0.75rem;
-            font-weight: 600;
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
             color: #FFD700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
+            line-height: 1.15;
+            margin-bottom: 16px;
+        }
+
+        .hero h1 span {
+            color: #f5f5f5;
+        }
+
+        .hero .tagline {
+            font-size: 1.15rem;
+            color: #999;
+            max-width: 480px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        /* Coming soon */
+        .coming-soon {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .coming-soon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            color: #FFD700;
+            font-size: 0.85rem;
+            font-weight: 600;
+            padding: 10px 20px;
+            border-radius: 24px;
+            margin-bottom: 20px;
+            letter-spacing: 0.3px;
+        }
+
+        .pulse-dot {
+            width: 8px;
+            height: 8px;
+            background: #FFD700;
+            border-radius: 50%;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(0.8); }
+        }
+
+        .coming-soon h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            color: #f5f5f5;
             margin-bottom: 10px;
         }
 
-        .question-text {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #f0f0f0;
-            margin-bottom: 20px;
-            line-height: 1.4;
+        .coming-soon p {
+            font-size: 1rem;
+            color: #888;
+            max-width: 420px;
+            margin: 0 auto;
+            line-height: 1.5;
         }
 
-        .options {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-
-        .option {
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            padding: 14px 16px;
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            user-select: none;
-        }
-
-        .option:hover {
-            background: #1f1f1f;
-            border-color: #444;
-        }
-
-        .option.selected {
-            background: rgba(255, 215, 0, 0.08);
-            border-color: #FFD700;
-        }
-
-        .option-radio {
-            width: 20px;
-            height: 20px;
-            min-width: 20px;
-            border: 2px solid #444;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-top: 1px;
-            transition: all 0.2s ease;
-        }
-
-        .option.selected .option-radio {
-            border-color: #FFD700;
-        }
-
-        .option.selected .option-radio::after {
-            content: '';
-            width: 10px;
-            height: 10px;
-            background: #FFD700;
-            border-radius: 50%;
-        }
-
-        .option-text {
-            font-size: 0.95rem;
-            color: #ccc;
-            line-height: 1.4;
-        }
-
-        .option.selected .option-text {
-            color: #f0f0f0;
-        }
-
-        /* Submit button */
-        .submit-section {
+        /* Waitlist form */
+        .waitlist {
             text-align: center;
             padding: 30px 0;
         }
 
-        .submit-btn {
-            background: #FFD700;
-            color: #0d0d0d;
+        .waitlist-form {
+            display: flex;
+            gap: 10px;
+            max-width: 440px;
+            margin: 0 auto;
+        }
+
+        .waitlist-form input[type="email"] {
+            flex: 1;
             font-family: 'Inter', sans-serif;
-            font-size: 1.1rem;
-            font-weight: 700;
-            padding: 16px 48px;
+            font-size: 0.95rem;
+            padding: 14px 18px;
+            background: #1a1a1a;
+            border: 1px solid #333;
+            border-radius: 10px;
+            color: #f5f5f5;
+            outline: none;
+            transition: border-color 0.2s ease;
+        }
+
+        .waitlist-form input[type="email"]::placeholder {
+            color: #666;
+        }
+
+        .waitlist-form input[type="email"]:focus {
+            border-color: #FFD700;
+        }
+
+        .waitlist-form button {
+            font-family: 'Inter', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 600;
+            padding: 14px 24px;
+            background: #FFD700;
+            color: #1A1A1A;
             border: none;
-            border-radius: 12px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.2s ease;
-            letter-spacing: 0.3px;
+            white-space: nowrap;
         }
 
-        .submit-btn:hover {
+        .waitlist-form button:hover {
             background: #e6c200;
             transform: translateY(-1px);
-            box-shadow: 0 6px 20px rgba(255, 215, 0, 0.25);
         }
 
-        .submit-btn:disabled {
-            background: #333;
-            color: #666;
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .submit-hint {
-            font-size: 0.8rem;
+        .waitlist-note {
+            font-size: 0.75rem;
             color: #555;
             margin-top: 10px;
         }
 
-        /* Results */
-        .result-section {
+        .waitlist-success {
             display: none;
-            text-align: center;
-            padding: 40px 0 20px;
-        }
-
-        .result-section.visible {
-            display: block;
-            animation: fadeUp 0.6s ease;
-        }
-
-        @keyframes fadeUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .result-card {
-            border-radius: 20px;
-            padding: 40px 30px;
-            margin-bottom: 24px;
-            border: 2px solid;
-        }
-
-        .result-you-are {
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            margin-bottom: 8px;
-            opacity: 0.8;
-        }
-
-        .result-ai-name {
-            font-size: 2.6rem;
-            font-weight: 800;
-            margin-bottom: 6px;
-        }
-
-        .result-energy {
-            font-size: 1.1rem;
-            font-weight: 600;
-            margin-bottom: 6px;
-            opacity: 0.85;
-        }
-
-        .result-strengths {
-            font-size: 0.85rem;
-            opacity: 0.6;
-            margin-bottom: 24px;
-        }
-
-        .result-description {
-            font-size: 1.05rem;
-            line-height: 1.7;
-            text-align: left;
-            color: #e8e8e8;
-            max-width: 560px;
+            padding: 16px 24px;
+            background: rgba(255, 215, 0, 0.08);
+            border: 1px solid rgba(255, 215, 0, 0.25);
+            border-radius: 10px;
+            color: #FFD700;
+            font-size: 0.95rem;
+            font-weight: 500;
+            max-width: 440px;
             margin: 0 auto;
         }
 
-        /* Agree / Disagree */
-        .reaction-section {
-            margin: 30px 0;
-            padding: 24px;
-            background: #161616;
-            border: 1px solid #262626;
-            border-radius: 14px;
+        /* Links section */
+        .links-section {
+            padding: 30px 0;
         }
 
-        .reaction-section h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #FFD700;
-            margin-bottom: 14px;
+        .links-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .reaction-buttons {
+        .link-card {
             display: flex;
-            gap: 12px;
-            justify-content: center;
-            flex-wrap: wrap;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            padding: 24px 16px;
+            background: #141414;
+            border: 1px solid #222;
+            border-radius: 14px;
+            text-decoration: none;
+            color: #f5f5f5;
+            transition: all 0.2s ease;
         }
 
-        .reaction-btn {
-            font-family: 'Inter', sans-serif;
+        .link-card:hover {
+            border-color: #FFD700;
+            background: #1a1a1a;
+            transform: translateY(-2px);
+        }
+
+        .link-icon {
+            font-size: 1.8rem;
+            line-height: 1;
+        }
+
+        .link-card .link-title {
             font-size: 0.9rem;
             font-weight: 600;
-            padding: 12px 24px;
-            border-radius: 10px;
-            border: 2px solid #333;
-            background: transparent;
+            color: #FFD700;
+        }
+
+        .link-card .link-desc {
+            font-size: 0.75rem;
+            color: #777;
+            text-align: center;
+            line-height: 1.4;
+        }
+
+        /* Quizzes section */
+        .quizzes-section {
+            padding: 30px 0;
+        }
+
+        .quizzes-section h3 {
+            text-align: center;
+            font-size: 1.1rem;
+            font-weight: 600;
             color: #ccc;
-            cursor: pointer;
-            transition: all 0.2s ease;
+            margin-bottom: 16px;
         }
 
-        .reaction-btn:hover {
-            border-color: #FFD700;
-            color: #FFD700;
+        .quiz-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+            max-width: 500px;
+            margin: 0 auto;
         }
 
-        .reaction-btn.active {
-            border-color: #FFD700;
-            background: rgba(255, 215, 0, 0.1);
-            color: #FFD700;
-        }
-
-        .reaction-message {
-            display: none;
-            margin-top: 16px;
-            font-size: 0.95rem;
-            color: #999;
-            line-height: 1.5;
-        }
-
-        .reaction-message.visible {
+        .quiz-card {
             display: block;
-            animation: fadeUp 0.4s ease;
-        }
-
-        /* CTA section */
-        .cta-section {
-            text-align: center;
-            padding: 30px;
-            background: #161616;
-            border: 1px solid #262626;
-            border-radius: 16px;
-            margin: 20px 0 40px;
-        }
-
-        .cta-section h3 {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #f0f0f0;
-            margin-bottom: 10px;
-        }
-
-        .cta-section p {
-            font-size: 0.95rem;
-            color: #888;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-
-        .cta-btn {
-            display: inline-block;
-            background: #FFD700;
-            color: #0d0d0d;
-            font-family: 'Inter', sans-serif;
-            font-size: 1rem;
-            font-weight: 700;
-            padding: 14px 36px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .cta-btn:hover {
-            background: #e6c200;
-            transform: translateY(-1px);
-        }
-
-        .retake-btn {
-            display: inline-block;
-            margin-top: 20px;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            color: #666;
-            background: none;
-            border: none;
-            cursor: pointer;
-            text-decoration: underline;
-        }
-
-        .retake-btn:hover { color: #999; }
-
-        /* Share section */
-        .share-section {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-        .share-section p {
-            font-size: 0.85rem;
-            color: #666;
-            margin-bottom: 12px;
-        }
-
-        .share-btn {
-            display: inline-block;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 10px 20px;
-            margin: 4px;
-            border-radius: 8px;
-            border: 1px solid #333;
-            background: transparent;
-            color: #ccc;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .share-btn:hover {
-            border-color: #FFD700;
-            color: #FFD700;
-        }
-
-        /* Share quiz button (prominent) */
-        .share-quiz-section {
-            text-align: center;
-            padding: 24px;
-            margin: 20px 0;
-            background: rgba(255, 215, 0, 0.06);
-            border: 1px solid rgba(255, 215, 0, 0.2);
+            padding: 22px 18px;
+            background: rgba(255, 215, 0, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.15);
             border-radius: 14px;
-        }
-
-        .share-quiz-section p {
-            font-size: 1rem;
-            color: #ccc;
-            margin-bottom: 12px;
-            font-weight: 500;
-        }
-
-        .share-quiz-btn {
-            display: inline-block;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            padding: 12px 28px;
-            margin: 4px;
-            border-radius: 10px;
-            border: 2px solid #FFD700;
-            background: transparent;
-            color: #FFD700;
-            cursor: pointer;
             text-decoration: none;
             transition: all 0.2s ease;
+            text-align: center;
         }
 
-        .share-quiz-btn:hover {
-            background: rgba(255, 215, 0, 0.1);
-            transform: translateY(-1px);
+        .quiz-card:hover {
+            border-color: #FFD700;
+            background: rgba(255, 215, 0, 0.08);
+            transform: translateY(-2px);
+        }
+
+        .quiz-card .quiz-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 6px;
+        }
+
+        .quiz-card .quiz-desc {
+            font-size: 0.78rem;
+            color: #888;
+            line-height: 1.4;
+        }
+
+        .quiz-card .quiz-time {
+            display: inline-block;
+            font-size: 0.7rem;
+            color: #666;
+            margin-top: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 3px 10px;
+            border-radius: 10px;
         }
 
         /* Footer */
@@ -498,17 +331,34 @@
             text-decoration: underline;
         }
 
+        /* Divider */
+        .section-divider {
+            width: 40px;
+            height: 2px;
+            background: rgba(255, 215, 0, 0.3);
+            margin: 10px auto;
+            border-radius: 1px;
+        }
+
         /* Mobile */
         @media (max-width: 600px) {
             .container { padding: 16px; }
-            .header h1 { font-size: 1.8rem; }
-            .header { padding: 30px 0 20px; }
-            .question-card { padding: 22px 18px; }
-            .question-text { font-size: 1.05rem; }
-            .option { padding: 12px 14px; }
-            .option-text { font-size: 0.9rem; }
-            .result-ai-name { font-size: 2rem; }
-            .result-card { padding: 30px 20px; }
+            .hero { padding: 40px 0 30px; }
+            .hero h1 { font-size: 2rem; }
+            .hero .tagline { font-size: 1rem; }
+            .coming-soon h2 { font-size: 1.3rem; }
+            .waitlist-form {
+                flex-direction: column;
+            }
+            .waitlist-form button {
+                width: 100%;
+            }
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+            .quiz-cards {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -516,238 +366,89 @@
 
 <div class="container">
 
-    <!-- Header -->
-    <div class="header">
-        <div class="badge">AI for Her Business</div>
-        <h1>Which AI Are You?</h1>
-        <p>5 questions. 3 minutes. Find the AI that matches your work style.</p>
+    <!-- Hero -->
+    <div class="hero">
+        <div class="brand-badge">AI for Her Business</div>
+        <h1>AI tools. <span>Real business.</span></h1>
+        <p class="tagline">Helping women business owners use AI with confidence — no jargon, no hype, just what actually works.</p>
     </div>
 
-    <!-- Quiz -->
-    <div id="quiz">
-        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
-        <div class="progress-text" id="progressText">0 of 5 answered</div>
-
-        <!-- Q1 -->
-        <div class="question-card" id="q1">
-            <div class="question-number">Question 1 — Action Style</div>
-            <div class="question-text">You're handed a new project. Your first instinct is to...</div>
-            <div class="options">
-                <div class="option" onclick="select(1,'A',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Start immediately — momentum matters more than planning</div>
-                </div>
-                <div class="option" onclick="select(1,'B',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Read the brief carefully, understand the context, then outline your approach</div>
-                </div>
-                <div class="option" onclick="select(1,'C',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Research what's already been done and gather all available information first</div>
-                </div>
-                <div class="option" onclick="select(1,'D',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Challenge the brief — is this even the right problem to be solving?</div>
-                </div>
-                <div class="option" onclick="select(1,'E',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Break it into tasks and start executing systematically until it's done</div>
-                </div>
-                <div class="option" onclick="select(1,'F',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Explore every angle, map the connections, and try to cover all bases</div>
-                </div>
-            </div>
+    <!-- Coming Soon -->
+    <div class="coming-soon">
+        <div class="coming-soon-badge">
+            <span class="pulse-dot"></span>
+            Something's brewing
         </div>
+        <h2>Great things coming soon</h2>
+        <p>Join the waiting list to hear about upcoming events, challenges, and resources.</p>
+    </div>
 
-        <!-- Q2 -->
-        <div class="question-card" id="q2">
-            <div class="question-number">Question 2 — Energy Source</div>
-            <div class="question-text">The work that energises you most is...</div>
-            <div class="options">
-                <div class="option" onclick="select(2,'A',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Collaborating with people and generating ideas fast</div>
-                </div>
-                <div class="option" onclick="select(2,'B',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Deep, focused work where quality matters more than speed</div>
-                </div>
-                <div class="option" onclick="select(2,'C',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Discovering a pattern, a source, or an insight nobody else found</div>
-                </div>
-                <div class="option" onclick="select(2,'D',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Challenging the status quo and doing things no one expected</div>
-                </div>
-                <div class="option" onclick="select(2,'E',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Completing a complex task and seeing the finished result</div>
-                </div>
-                <div class="option" onclick="select(2,'F',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Working across different areas and connecting dots between them</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Q3 -->
-        <div class="question-card" id="q3">
-            <div class="question-number">Question 3 — Decision Driver</div>
-            <div class="question-text">When making a decision, you rely most on...</div>
-            <div class="options">
-                <div class="option" onclick="select(3,'A',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Gut instinct and experience — you'll course-correct later if needed</div>
-                </div>
-                <div class="option" onclick="select(3,'B',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Careful analysis — you think through consequences before committing</div>
-                </div>
-                <div class="option" onclick="select(3,'C',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Data and evidence — you need proof before you move</div>
-                </div>
-                <div class="option" onclick="select(3,'D',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Your own perspective — even when it's unpopular</div>
-                </div>
-                <div class="option" onclick="select(3,'E',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">A clear plan — weigh the options, pick the best, execute</div>
-                </div>
-                <div class="option" onclick="select(3,'F',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Multiple inputs — you want to consider every angle before choosing</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Q4 -->
-        <div class="question-card" id="q4">
-            <div class="question-number">Question 4 — Your Superpower</div>
-            <div class="question-text">People come to you when they need...</div>
-            <div class="options">
-                <div class="option" onclick="select(4,'A',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Energy, ideas, and someone who'll say yes and figure it out</div>
-                </div>
-                <div class="option" onclick="select(4,'B',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Something done right the first time, with care and attention</div>
-                </div>
-                <div class="option" onclick="select(4,'C',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Facts, sources, and thoroughly researched information</div>
-                </div>
-                <div class="option" onclick="select(4,'D',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">An honest opinion, even if it's uncomfortable</div>
-                </div>
-                <div class="option" onclick="select(4,'E',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">Something complex handled end-to-end without hand-holding</div>
-                </div>
-                <div class="option" onclick="select(4,'F',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">A broad perspective from someone who can pull from everywhere</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Q5 -->
-        <div class="question-card" id="q5">
-            <div class="question-number">Question 5 — Growth Edge</div>
-            <div class="question-text">Your biggest strength is also your biggest weakness:</div>
-            <div class="options">
-                <div class="option" onclick="select(5,'A',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">You move fast — sometimes too fast. Accuracy takes the hit.</div>
-                </div>
-                <div class="option" onclick="select(5,'B',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">You care deeply about quality — sometimes too deeply. Speed takes the hit.</div>
-                </div>
-                <div class="option" onclick="select(5,'C',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">You research everything — sometimes too much. Decisions take the hit.</div>
-                </div>
-                <div class="option" onclick="select(5,'D',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">You speak your mind — sometimes too freely. Diplomacy takes the hit.</div>
-                </div>
-                <div class="option" onclick="select(5,'E',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">You take on everything — sometimes too much. Delegation takes the hit.</div>
-                </div>
-                <div class="option" onclick="select(5,'F',this)">
-                    <div class="option-radio"></div>
-                    <div class="option-text">You try to cover everything — sometimes too broadly. Depth takes the hit.</div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Submit -->
-        <div class="submit-section">
-            <button class="submit-btn" id="submitBtn" disabled onclick="showResult()">Find My AI Match</button>
-            <div class="submit-hint" id="submitHint">Answer all 5 questions to see your result</div>
+    <!-- Waitlist -->
+    <div class="waitlist">
+        <form class="waitlist-form" id="waitlistForm" action="https://formsubmit.co/nataliya@aiforherbusiness.com.au" method="POST">
+            <input type="hidden" name="_subject" value="New waitlist signup - AI for Her Business">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_next" value="https://aiforherbusiness.com.au#thanks">
+            <input type="email" name="email" placeholder="Your email address" required>
+            <button type="submit">Join the list</button>
+        </form>
+        <p class="waitlist-note">No spam. Just updates when something worth knowing about launches.</p>
+        <div class="waitlist-success" id="successMsg">
+            You're on the list! We'll be in touch soon.
         </div>
     </div>
 
-    <!-- Results -->
-    <div class="result-section" id="resultSection">
-        <div class="result-card" id="resultCard">
-            <div class="result-you-are">You are</div>
-            <div class="result-ai-name" id="resultName"></div>
-            <div class="result-energy" id="resultEnergy"></div>
-            <div class="result-strengths" id="resultStrengths"></div>
-            <div class="result-description" id="resultDesc"></div>
-        </div>
+    <div class="section-divider"></div>
 
-        <!-- Agree / Disagree -->
-        <div class="reaction-section">
-            <h3>Does this sound like you?</h3>
-            <div class="reaction-buttons">
-                <button class="reaction-btn" onclick="react('spot-on', this)">Spot on</button>
-                <button class="reaction-btn" onclick="react('close', this)">Pretty close</button>
-                <button class="reaction-btn" onclick="react('hybrid', this)">I'm a hybrid</button>
-                <button class="reaction-btn" onclick="react('wrong', this)">Not me at all</button>
-            </div>
-            <div class="reaction-message" id="reactionMsg"></div>
+    <!-- Links -->
+    <div class="links-section">
+        <div class="links-grid">
+            <a class="link-card" href="https://leadmark.ai" target="_blank" rel="noopener">
+                <span class="link-icon">&#9889;</span>
+                <span class="link-title">leadmark.ai</span>
+                <span class="link-desc">AI consultancy for businesses ready to move</span>
+            </a>
+            <a class="link-card" href="https://www.skool.com/pivotlab" target="_blank" rel="noopener">
+                <span class="link-icon">&#127891;</span>
+                <span class="link-title">Join the Community</span>
+                <span class="link-desc">Free Skool group for business owners using AI</span>
+            </a>
+            <a class="link-card" href="https://www.youtube.com/@A.I.forHerBusiness" target="_blank" rel="noopener">
+                <span class="link-icon">&#9654;&#65039;</span>
+                <span class="link-title">YouTube</span>
+                <span class="link-desc">Tutorials, challenges, and real AI use cases</span>
+            </a>
+            <a class="link-card" href="https://www.linkedin.com/in/nataliya-shalygina-7540b418/" target="_blank" rel="noopener">
+                <span class="link-icon">&#128101;</span>
+                <span class="link-title">LinkedIn</span>
+                <span class="link-desc">Connect with Nataliya</span>
+            </a>
         </div>
+    </div>
 
-        <!-- Share -->
-        <div class="share-section">
-            <p>Share your result</p>
-            <button class="share-btn" onclick="copyResult()">Copy result</button>
-            <a class="share-btn" id="linkedinShare" href="#" target="_blank" rel="noopener">Share on LinkedIn</a>
-        </div>
+    <div class="section-divider"></div>
 
-        <!-- CTA -->
-        <div class="cta-section">
-            <h3>Want the AI prompt tailored to your match?</h3>
-            <p>Join AI for Her Business on Skool (free) to get the Value Magnet Discovery prompt customised for your AI — plus templates, challenges, and a community of business owners building with AI.</p>
-            <a class="cta-btn" href="https://www.skool.com/pivotlab" target="_blank" rel="noopener">Join the Free Community</a>
-        </div>
-
-        <!-- Share quiz with others -->
-        <div class="share-quiz-section">
-            <p>Know someone who'd love this quiz?</p>
-            <button class="share-quiz-btn" onclick="copyQuizLink()">Copy quiz link</button>
-            <a class="share-quiz-btn" id="linkedinShareQuiz" href="#" target="_blank" rel="noopener" onclick="setShareQuizLink(this)">Share on LinkedIn</a>
-        </div>
-
-        <div style="text-align:center;">
-            <button class="retake-btn" onclick="retake()">Retake the quiz</button>
+    <!-- Quizzes -->
+    <div class="quizzes-section">
+        <h3>While you're here, try a quiz</h3>
+        <div class="quiz-cards">
+            <a class="quiz-card" href="which-ai-are-you-quiz.html">
+                <div class="quiz-title">Which AI Are You?</div>
+                <div class="quiz-desc">Find the AI that matches your work style and personality.</div>
+                <span class="quiz-time">3 min quiz</span>
+            </a>
+            <a class="quiz-card" href="which-ai-complements-you-quiz.html">
+                <div class="quiz-title">Which AI Complements You?</div>
+                <div class="quiz-desc">Discover the AI tool that fills your blind spots.</div>
+                <span class="quiz-time">3 min quiz</span>
+            </a>
         </div>
     </div>
 
     <!-- Footer -->
     <div class="footer">
-        <p class="brand-name">Created by Nataliya Shalygina</p>
+        <p class="brand-name">Nataliya Shalygina</p>
         <p class="brand-links">
-            <a href="https://aiforherbusiness.com.au">AI for Her Business</a> &nbsp;|&nbsp;
             <a href="https://leadmark.ai">leadmark.ai</a> &nbsp;|&nbsp;
             <a href="https://www.linkedin.com/in/nataliya-shalygina-7540b418/" target="_blank" rel="noopener">LinkedIn</a>
         </p>
@@ -756,182 +457,12 @@
 </div>
 
 <script>
-    const answers = {};
-    const total = 5;
-
-    const results = {
-        A: {
-            name: 'ChatGPT',
-            energy: 'Golden Retriever Energy',
-            strengths: 'Activator \u00b7 Communication \u00b7 Positivity',
-            color: '#2eb85c',
-            desc: 'You make things happen. While others are still planning, you\u2019re already three steps in. Your superpower is momentum \u2014 you turn ideas into action faster than anyone in the room. People love working with you because your energy is contagious and you never say no to a challenge. You\u2019re the person who gets the ball rolling when everyone else is overthinking it.'
-        },
-        B: {
-            name: 'Claude',
-            energy: 'Eldest Daughter Energy',
-            strengths: 'Deliberative \u00b7 Responsibility \u00b7 Intellection',
-            color: '#d97729',
-            desc: 'You\u2019re the person everyone trusts with the important stuff. You read the entire brief, think it through, and deliver work you\u2019re proud of. Your superpower is quality \u2014 when it comes from you, people know it\u2019s been considered carefully. You set the standard others aspire to. The world needs more people who care this much about getting it right.'
-        },
-        C: {
-            name: 'Perplexity',
-            energy: 'Research Assistant Energy',
-            strengths: 'Input \u00b7 Analytical \u00b7 Learner',
-            color: '#2980b9',
-            desc: 'You don\u2019t guess \u2014 you know. Your superpower is depth. While others rely on assumptions, you\u2019ve already found the data, checked the sources, and built the case. You\u2019re the person people come to when they need the truth, not an opinion. Your curiosity is relentless and your homework is always done.'
-        },
-        D: {
-            name: 'Grok',
-            energy: 'Joker Energy',
-            strengths: 'Command \u00b7 Ideation \u00b7 Self-Assurance',
-            color: '#dc3232',
-            desc: 'You see what others miss because you\u2019re not afraid to look at things differently. Your superpower is perspective \u2014 you ask the questions nobody else will and challenge ideas that need challenging. Every great team needs someone brave enough to say \u201cwait, are we sure about this?\u201d That person is you. You make the work better by making people think harder.'
-        },
-        E: {
-            name: 'Manus',
-            energy: 'Persistent Achiever Energy',
-            strengths: 'Achiever \u00b7 Arranger \u00b7 Focus',
-            color: '#db448c',
-            desc: 'You don\u2019t just start things \u2014 you finish them. Your superpower is execution. Give you a goal and you\u2019ll map the steps, handle the complexity, and deliver the result \u2014 often before anyone expected it. You\u2019re the person people trust with the hardest problems because they know you won\u2019t stop until it\u2019s done. Autonomous, focused, and unstoppable.'
-        },
-        F: {
-            name: 'Gemini',
-            energy: 'Swiss Army Knife Energy',
-            strengths: 'Adaptability \u00b7 Connectedness \u00b7 Includer',
-            color: '#4285f4',
-            desc: 'You thrive in complexity because you see connections others miss. Your superpower is versatility \u2014 you can switch between topics, tools, and teams without missing a beat. You\u2019re the person who ties everything together when a project spans multiple areas. Where specialists go deep, you go wide \u2014 and that\u2019s exactly what makes you indispensable.'
-        }
-    };
-
-    function select(q, letter, el) {
-        answers[q] = letter;
-
-        // Update UI for this question
-        const card = document.getElementById('q' + q);
-        card.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-        el.classList.add('selected');
-        card.classList.add('answered');
-
-        // Update progress
-        const count = Object.keys(answers).length;
-        document.getElementById('progressFill').style.width = (count / total * 100) + '%';
-        document.getElementById('progressText').textContent = count + ' of ' + total + ' answered';
-
-        // Enable submit button
-        if (count === total) {
-            document.getElementById('submitBtn').disabled = false;
-            document.getElementById('submitHint').textContent = 'Ready!';
-        }
-    }
-
-    function showResult() {
-        // Tally scores
-        const scores = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
-        Object.values(answers).forEach(a => scores[a]++);
-
-        // Find winner
-        let maxScore = 0;
-        let winner = 'A';
-        for (const [letter, count] of Object.entries(scores)) {
-            if (count > maxScore) {
-                maxScore = count;
-                winner = letter;
-            }
-        }
-
-        const r = results[winner];
-
-        // Update result card
-        document.getElementById('resultName').textContent = r.name;
-        document.getElementById('resultEnergy').textContent = r.energy;
-        document.getElementById('resultStrengths').textContent = r.strengths;
-        document.getElementById('resultDesc').textContent = r.desc;
-
-        const card = document.getElementById('resultCard');
-        card.style.background = r.color + '15';
-        card.style.borderColor = r.color;
-        document.getElementById('resultName').style.color = r.color;
-        document.getElementById('resultEnergy').style.color = r.color;
-
-        // LinkedIn share
-        const shareText = encodeURIComponent(
-            'I just took the "Which AI Are You?" quiz and I got ' + r.name + ' \u2014 ' + r.energy + '!\n\n' +
-            'Take it yourself: '
-        );
-        document.getElementById('linkedinShare').href =
-            'https://www.linkedin.com/sharing/share-offsite/?url=' +
-            encodeURIComponent(window.location.href);
-
-        // Store result for sharing
-        window.currentResult = r;
-
-        // Hide quiz, show result
-        document.getElementById('quiz').style.display = 'none';
-        document.getElementById('resultSection').classList.add('visible');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
-    }
-
-    function react(type, btn) {
-        // Highlight button
-        document.querySelectorAll('.reaction-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-
-        const msg = document.getElementById('reactionMsg');
-        const messages = {
-            'spot-on': "Knew it. Share your result \u2014 let\u2019s see if your friends agree.",
-            'close': "Close counts. You might be a hybrid \u2014 most interesting people are. Share it and see what others think.",
-            'hybrid': "Hybrids are the most interesting results. Which two AIs are you split between? Share your result and tell people which combo you really are.",
-            'wrong': "Plot twist. Which AI do YOU think you are? Share your result and tell people which one you\u2019d pick instead \u2014 that conversation is even better than the quiz."
-        };
-        msg.textContent = messages[type];
-        msg.classList.add('visible');
-    }
-
-    function copyResult() {
-        const r = window.currentResult;
-        const text = 'I just took the "Which AI Are You?" quiz and I got ' +
-            r.name + ' \u2014 ' + r.energy +
-            '! \uD83D\uDE80\n\nTake it yourself: ' + window.location.href;
-        navigator.clipboard.writeText(text).then(() => {
-            const btn = document.querySelector('.share-btn');
-            const orig = btn.textContent;
-            btn.textContent = 'Copied!';
-            setTimeout(() => btn.textContent = orig, 2000);
-        });
-    }
-
-    function copyQuizLink() {
-        navigator.clipboard.writeText(window.location.href).then(() => {
-            const btns = document.querySelectorAll('.share-quiz-btn');
-            const btn = btns[0];
-            const orig = btn.textContent;
-            btn.textContent = 'Copied!';
-            setTimeout(() => btn.textContent = orig, 2000);
-        });
-    }
-
-    function setShareQuizLink(el) {
-        el.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' +
-            encodeURIComponent(window.location.href);
-    }
-
-    function retake() {
-        // Reset
-        for (const key in answers) delete answers[key];
-        document.querySelectorAll('.option').forEach(o => o.classList.remove('selected'));
-        document.querySelectorAll('.question-card').forEach(c => c.classList.remove('answered'));
-        document.querySelectorAll('.reaction-btn').forEach(b => b.classList.remove('active'));
-        document.getElementById('reactionMsg').classList.remove('visible');
-        document.getElementById('progressFill').style.width = '0%';
-        document.getElementById('progressText').textContent = '0 of 5 answered';
-        document.getElementById('submitBtn').disabled = true;
-        document.getElementById('submitHint').textContent = 'Answer all 5 questions to see your result';
-
-        // Show quiz, hide result
-        document.getElementById('quiz').style.display = 'block';
-        document.getElementById('resultSection').classList.remove('visible');
-        window.scrollTo({ top: 0, behavior: 'smooth' });
+    // Show success message if redirected back after form submission
+    if (window.location.hash === '#thanks') {
+        document.getElementById('waitlistForm').style.display = 'none';
+        document.getElementById('successMsg').style.display = 'block';
+        // Clean up URL
+        history.replaceState(null, '', window.location.pathname);
     }
 </script>
 
