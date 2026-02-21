@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AI for Her Business | Nataliya Shalygina</title>
-    <meta name="description" content="Helping women business owners use AI with confidence. Great things coming soon.">
+    <meta name="description" content="Helping women business owners use AI with confidence.">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
@@ -68,181 +68,9 @@
             line-height: 1.6;
         }
 
-        /* Coming soon */
-        .coming-soon {
-            text-align: center;
-            padding: 40px 0;
-        }
-
-        .coming-soon-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: rgba(255, 215, 0, 0.08);
-            border: 1px solid rgba(255, 215, 0, 0.2);
-            color: #FFD700;
-            font-size: 0.85rem;
-            font-weight: 600;
-            padding: 10px 20px;
-            border-radius: 24px;
-            margin-bottom: 20px;
-            letter-spacing: 0.3px;
-        }
-
-        .pulse-dot {
-            width: 8px;
-            height: 8px;
-            background: #FFD700;
-            border-radius: 50%;
-            animation: pulse 2s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.5; transform: scale(0.8); }
-        }
-
-        .coming-soon h2 {
-            font-size: 1.6rem;
-            font-weight: 700;
-            color: #f5f5f5;
-            margin-bottom: 10px;
-        }
-
-        .coming-soon p {
-            font-size: 1rem;
-            color: #888;
-            max-width: 420px;
-            margin: 0 auto;
-            line-height: 1.5;
-        }
-
-        /* Waitlist form */
-        .waitlist {
-            text-align: center;
-            padding: 30px 0;
-        }
-
-        .waitlist-form {
-            display: flex;
-            gap: 10px;
-            max-width: 440px;
-            margin: 0 auto;
-        }
-
-        .waitlist-form input[type="email"] {
-            flex: 1;
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            padding: 14px 18px;
-            background: #1a1a1a;
-            border: 1px solid #333;
-            border-radius: 10px;
-            color: #f5f5f5;
-            outline: none;
-            transition: border-color 0.2s ease;
-        }
-
-        .waitlist-form input[type="email"]::placeholder {
-            color: #666;
-        }
-
-        .waitlist-form input[type="email"]:focus {
-            border-color: #FFD700;
-        }
-
-        .waitlist-form button {
-            font-family: 'Inter', sans-serif;
-            font-size: 0.95rem;
-            font-weight: 600;
-            padding: 14px 24px;
-            background: #FFD700;
-            color: #1A1A1A;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            transition: all 0.2s ease;
-            white-space: nowrap;
-        }
-
-        .waitlist-form button:hover {
-            background: #e6c200;
-            transform: translateY(-1px);
-        }
-
-        .waitlist-note {
-            font-size: 0.75rem;
-            color: #555;
-            margin-top: 10px;
-        }
-
-        .waitlist-success {
-            display: none;
-            padding: 16px 24px;
-            background: rgba(255, 215, 0, 0.08);
-            border: 1px solid rgba(255, 215, 0, 0.25);
-            border-radius: 10px;
-            color: #FFD700;
-            font-size: 0.95rem;
-            font-weight: 500;
-            max-width: 440px;
-            margin: 0 auto;
-        }
-
-        /* Links section */
-        .links-section {
-            padding: 30px 0;
-        }
-
-        .links-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            max-width: 500px;
-            margin: 0 auto;
-        }
-
-        .link-card {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            padding: 24px 16px;
-            background: #141414;
-            border: 1px solid #222;
-            border-radius: 14px;
-            text-decoration: none;
-            color: #f5f5f5;
-            transition: all 0.2s ease;
-        }
-
-        .link-card:hover {
-            border-color: #FFD700;
-            background: #1a1a1a;
-            transform: translateY(-2px);
-        }
-
-        .link-icon {
-            font-size: 1.8rem;
-            line-height: 1;
-        }
-
-        .link-card .link-title {
-            font-size: 0.9rem;
-            font-weight: 600;
-            color: #FFD700;
-        }
-
-        .link-card .link-desc {
-            font-size: 0.75rem;
-            color: #777;
-            text-align: center;
-            line-height: 1.4;
-        }
-
         /* Quizzes section */
         .quizzes-section {
-            padding: 30px 0;
+            padding: 40px 0;
         }
 
         .quizzes-section h3 {
@@ -250,20 +78,20 @@
             font-size: 1.1rem;
             font-weight: 600;
             color: #ccc;
-            margin-bottom: 16px;
+            margin-bottom: 20px;
         }
 
         .quiz-cards {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 14px;
-            max-width: 500px;
+            gap: 16px;
+            max-width: 520px;
             margin: 0 auto;
         }
 
         .quiz-card {
             display: block;
-            padding: 22px 18px;
+            padding: 28px 20px;
             background: rgba(255, 215, 0, 0.04);
             border: 1px solid rgba(255, 215, 0, 0.15);
             border-radius: 14px;
@@ -279,14 +107,14 @@
         }
 
         .quiz-card .quiz-title {
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             font-weight: 700;
             color: #FFD700;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
         }
 
         .quiz-card .quiz-desc {
-            font-size: 0.78rem;
+            font-size: 0.82rem;
             color: #888;
             line-height: 1.4;
         }
@@ -295,7 +123,7 @@
             display: inline-block;
             font-size: 0.7rem;
             color: #666;
-            margin-top: 8px;
+            margin-top: 10px;
             background: rgba(255, 255, 255, 0.05);
             padding: 3px 10px;
             border-radius: 10px;
@@ -331,31 +159,12 @@
             text-decoration: underline;
         }
 
-        /* Divider */
-        .section-divider {
-            width: 40px;
-            height: 2px;
-            background: rgba(255, 215, 0, 0.3);
-            margin: 10px auto;
-            border-radius: 1px;
-        }
-
         /* Mobile */
         @media (max-width: 600px) {
             .container { padding: 16px; }
             .hero { padding: 40px 0 30px; }
             .hero h1 { font-size: 2rem; }
             .hero .tagline { font-size: 1rem; }
-            .coming-soon h2 { font-size: 1.3rem; }
-            .waitlist-form {
-                flex-direction: column;
-            }
-            .waitlist-form button {
-                width: 100%;
-            }
-            .links-grid {
-                grid-template-columns: 1fr;
-            }
             .quiz-cards {
                 grid-template-columns: 1fr;
             }
@@ -373,64 +182,9 @@
         <p class="tagline">Helping women business owners use AI with confidence — no jargon, no hype, just what actually works.</p>
     </div>
 
-    <!-- Coming Soon -->
-    <div class="coming-soon">
-        <div class="coming-soon-badge">
-            <span class="pulse-dot"></span>
-            Something's brewing
-        </div>
-        <h2>Great things coming soon</h2>
-        <p>Join the waiting list to hear about upcoming events, challenges, and resources.</p>
-    </div>
-
-    <!-- Waitlist -->
-    <div class="waitlist">
-        <form class="waitlist-form" id="waitlistForm" action="https://formsubmit.co/nataliya@aiforherbusiness.com.au" method="POST">
-            <input type="hidden" name="_subject" value="New waitlist signup - AI for Her Business">
-            <input type="hidden" name="_captcha" value="false">
-            <input type="hidden" name="_next" value="https://aiforherbusiness.com.au#thanks">
-            <input type="email" name="email" placeholder="Your email address" required>
-            <button type="submit">Join the list</button>
-        </form>
-        <p class="waitlist-note">No spam. Just updates when something worth knowing about launches.</p>
-        <div class="waitlist-success" id="successMsg">
-            You're on the list! We'll be in touch soon.
-        </div>
-    </div>
-
-    <div class="section-divider"></div>
-
-    <!-- Links -->
-    <div class="links-section">
-        <div class="links-grid">
-            <a class="link-card" href="https://leadmark.ai" target="_blank" rel="noopener">
-                <span class="link-icon">&#9889;</span>
-                <span class="link-title">leadmark.ai</span>
-                <span class="link-desc">AI consultancy for businesses ready to move</span>
-            </a>
-            <a class="link-card" href="https://www.skool.com/pivotlab" target="_blank" rel="noopener">
-                <span class="link-icon">&#127891;</span>
-                <span class="link-title">Join the Community</span>
-                <span class="link-desc">Free Skool group for business owners using AI</span>
-            </a>
-            <a class="link-card" href="https://www.youtube.com/@A.I.forHerBusiness" target="_blank" rel="noopener">
-                <span class="link-icon">&#9654;&#65039;</span>
-                <span class="link-title">YouTube</span>
-                <span class="link-desc">Tutorials, challenges, and real AI use cases</span>
-            </a>
-            <a class="link-card" href="https://www.linkedin.com/in/nataliya-shalygina-7540b418/" target="_blank" rel="noopener">
-                <span class="link-icon">&#128101;</span>
-                <span class="link-title">LinkedIn</span>
-                <span class="link-desc">Connect with Nataliya</span>
-            </a>
-        </div>
-    </div>
-
-    <div class="section-divider"></div>
-
     <!-- Quizzes -->
     <div class="quizzes-section">
-        <h3>While you're here, try a quiz</h3>
+        <h3>Take a quiz</h3>
         <div class="quiz-cards">
             <a class="quiz-card" href="which-ai-are-you-quiz.html">
                 <div class="quiz-title">Which AI Are You?</div>
@@ -455,16 +209,6 @@
     </div>
 
 </div>
-
-<script>
-    // Show success message if redirected back after form submission
-    if (window.location.hash === '#thanks') {
-        document.getElementById('waitlistForm').style.display = 'none';
-        document.getElementById('successMsg').style.display = 'block';
-        // Clean up URL
-        history.replaceState(null, '', window.location.pathname);
-    }
-</script>
 
 </body>
 </html>
